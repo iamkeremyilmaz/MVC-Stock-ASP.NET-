@@ -1,0 +1,32 @@
+﻿@using MvcStock.Models.Entity
+@model List<Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Our custemrs are in this stage</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Customer Id</th>
+        <th>Customer Name</th>
+        <th>Customer Surname</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>ALERT</th>
+    </tr>
+    <tbody>
+        @foreach (var cust in Model)
+        {
+        <tr>
+            <th>@cust.CustomerId</th>
+            <td>@cust.CustomerName</td>
+            <td>@cust.CustomerSurname</td>
+            <th><a href="/Customer/Delete/@cust.CustomerId" class=" btn btn-danger">Delete</a></th>
+            <th><a href="/Customer/custshow/@cust.CustomerId" class="btn btn-success">Update</a></th>
+            <td>@Html.ActionLink("Delete Button", "Delete", new { cust.CustomerId}, new { @class="btn btn-warning", onclick="return confirm('Are you sure for delete?')" } )</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Customer/NewCustomer/" class="btn btn-primary">Add New Customer</a>

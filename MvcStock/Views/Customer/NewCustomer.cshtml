@@ -1,0 +1,30 @@
+﻿@model MvcStock.Models.Entity.Customers
+@{
+    ViewBag.Title = "NewCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<form class="form-group" method="post">
+    <div>
+        <label>Customer Name</label>
+        @Html.TextAreaFor(m=>m.CustomerName, new {@class="form-control" })
+        @Html.ValidationMessageFor(m => m.CustomerName, "", new { @style="red"})
+    </div>
+    <div>
+        <label>Customer Surname</label>
+        <input type="text" class="form-control" name="CustomerSurname" />
+    </div>
+    <div style="margin-top:15px">
+        <button class="btn btn-info" id="btn1">Add an Customer</button>
+    </div>
+    <script>
+import { Alert } from "bootstrap";
+
+        $('#btn1').click(function () {
+
+            alert('Adding customer is succesful...');
+        });
+    </script>
+
+</form>
+
+

@@ -1,0 +1,18 @@
+﻿@model MvcStock.Models.Entity.Categories
+@{
+    ViewBag.Title = "NewCategories";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    <div>
+        <label>Categories Name</label>
+        @Html.TextBoxFor(m=>m.CategoriesName, new {@class="form-control"})
+        @Html.ValidationMessageFor(m=>m.CategoriesName,"", new {@style="color:red" })
+
+    </div>
+    <div>
+        <button class="btn btn-info">Add an Categories</button>
+    </div>
+</form>
+
